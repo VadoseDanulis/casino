@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lucky Palace</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background-glow"></div>
+
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-group">
+          <p class="eyebrow">Kasino</p>
+          <h1>Lucky Palace</h1>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="balance-box">
+            <span>Saldo</span>
+            <strong id="balance">1000</strong>
+            <small>€</small>
+          </div>
+          <button id="add-chips" class="chip-btn">+500</button>
+        </div>
+      </header>
+
+      <section class="stats-strip">
+        <div class="stat-card">
+          <span>Vítězné série</span>
+          <strong id="streak">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Výhry</span>
+          <strong id="wins">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Prohry</span>
+          <strong id="losses">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Nejlepší série</span>
+          <strong id="best-streak">0</strong>
+        </div>
+      </section>
+
+      <main class="content">
+        <section class="panel status-panel">
+          <div>
+            <p class="label">Poslední výsledek</p>
+            <h2 id="status-text">Vítej ve hře! Vyber si minihru a vsad.</h2>
+          </div>
+
+          <div class="panel-actions">
+            <span id="status-tag" class="status-tag live">LIVE</span>
+            <button id="reset-btn" class="secondary-btn">Reset</button>
+          </div>
+        </section>
+
+        <section class="games-grid">
+          <article class="game-card active" data-game="coin">
+            <h3>Heads or Tails</h3>
+            <p>Tipni si, zda padne hlava nebo panna.</p>
+            <div class="bet-row">
+              <label for="coin-bet">Vklad</label>
+              <input id="coin-bet" type="number" min="10" step="10" value="50" />
+            </div>
+            <div class="choices-row">
+              <label><input type="radio" name="coin-pick" value="heads" checked /> Hlava</label>
+              <label><input type="radio" name="coin-pick" value="tails" /> Panna</label>
+            </div>
+            <button class="primary-btn game-btn" data-action="coin">Hodit</button>
+          </article>
+
+          <article class="game-card" data-game="dice">
+            <h3>Kostky</h3>
+            <p>Tipni si číslo od 1 do 6.</p>
+            <div class="bet-row">
+              <label for="dice-bet">Vklad</label>
+              <input id="dice-bet" type="number" min="10" step="10" value="50" />
+            </div>
+            <div class="choices-row">
+              <label for="dice-pick">Výběr</label>
+              <select id="dice-pick">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </div>
+            <button class="primary-btn game-btn" data-action="dice">Hodit kostkou</button>
+          </article>
+
+          <article class="game-card" data-game="slots">
+            <h3>Sloty</h3>
+            <p>Vytoč 3 stejné symboly pro výhru.</p>
+            <div class="bet-row">
+              <label for="slots-bet">Vklad</label>
+              <input id="slots-bet" type="number" min="10" step="10" value="40" />
+            </div>
+            <div class="slots-display">
+              <span id="slot-1">🍒</span>
+              <span id="slot-2">🍋</span>
+              <span id="slot-3">⭐</span>
+            </div>
+            <button class="primary-btn game-btn" data-action="slots">Spustit</button>
+          </article>
+
+          <article class="game-card" data-game="guess">
+            <h3>Tipni číslo</h3>
+            <p>Uhodni číslo od 1 do 10.</p>
+            <div class="bet-row">
+              <label for="guess-bet">Vklad</label>
+              <input id="guess-bet" type="number" min="10" step="10" value="60" />
+            </div>
+            <div class="choices-row">
+              <label for="guess-pick">Tvoje číslo</label>
+              <input id="guess-pick" type="number" min="1" max="10" value="5" />
+            </div>
+            <button class="primary-btn game-btn" data-action="guess">Tipnout</button>
+          </article>
+
+          <article class="game-card" data-game="roulette">
+            <h3>Ruleta</h3>
+            <p>Tipni si barvu a sleduj, co padne na kole.</p>
+            <div class="bet-row">
+              <label for="roulette-bet">Vklad</label>
+              <input id="roulette-bet" type="number" min="10" step="10" value="60" />
+            </div>
+            <div class="choices-row roulette-choices">
+              <label><input type="radio" name="roulette-pick" value="red" checked /> Červená</label>
+              <label><input type="radio" name="roulette-pick" value="black" /> Černá</label>
+              <label><input type="radio" name="roulette-pick" value="green" /> Zelená</label>
+            </div>
+            <button class="primary-btn game-btn" data-action="roulette">Toč ruletou</button>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
